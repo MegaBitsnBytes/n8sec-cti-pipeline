@@ -1,7 +1,8 @@
  # 🛡️ n8sec CTI Engine
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://n8sec-cti.streamlit.app/)
-# Requires a groq api > get one free here: https://console.groq.com/ 
+# [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://n8sec-cti.streamlit.app/)
+
+## Requires a groq api > get one free here: https://console.groq.com/ 
 
 A live dashboard for processing and analyzing threat intelligence data.
 > Blazing-fast, LLM-powered Cyber Threat Intelligence triage and IOC extraction.
