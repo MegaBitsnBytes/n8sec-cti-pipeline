@@ -253,13 +253,28 @@ if st.button("🚀 Run Cloud Threat Intel Pipeline"):
             st.success(f"Found {len(incoming_urls)} new articles. Extracting intelligence...")
             master_ioc_list = []
             
-            for url in incoming_urls:
+            # --- PROGRESS BAR UI ---
+            total_articles = len(incoming_urls)
+            progress_bar = st.progress(0.0, text="Initializing Groq processing pipeline...")
+            status_text = st.empty() # Creates a dynamic text box that updates in place
+            
+            for index, url in enumerate(incoming_urls):
+                # Update the UI for the current article
+                current_step = index + 1
+                progress_percentage = float(current_step) / total_articles
+                
+                progress_bar.progress(progress_percentage, text=f"Analyzing article {current_step} of {total_articles}")
+                status_text.caption(f"**Target:** {url}")
+                
+                # 1. Scrape
                 title, text = scrape_article(url)
                 if not text: continue
                     
+                # 2. Extract AI Features
                 nlp_features = get_groq_intel_features(text, cloud_model, groq_api_key)
                 if not nlp_features: continue
                     
+                # 3. ML Triage
                 live_data = [[
                     nlp_features.get('pir_relevance_score', 0),
                     nlp_features.get('ioc_count', 0),
@@ -269,6 +284,7 @@ if st.button("🚀 Run Cloud Threat Intel Pipeline"):
                 
                 rating = clf_model.predict(live_data)[0]
                 
+                # 4. Display Results
                 if rating == 2:
                     st.error(f"🔴 **CRITICAL:** {title}")
                 elif rating == 1:
@@ -295,6 +311,10 @@ if st.button("🚀 Run Cloud Threat Intel Pipeline"):
                         st.code("\n".join(extracted_iocs), language="text") 
                     else:
                         st.write("**🪲 Indicators of Compromise (IOCs):** None detected.")
+            
+            # Clear the status text when the loop is totally finished
+            status_text.empty()
+            progress_bar.progress(1.0, text="✅ Pipeline execution complete!")
 
             if master_ioc_list:
                 st.markdown("---")
