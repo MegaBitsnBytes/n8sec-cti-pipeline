@@ -26,3 +26,5 @@ The **n8sec CTI Engine** is an automated pipeline built for security analysts. I
    ```bash
    git clone [https://github.com/YOUR_USERNAME/n8sec-cti-pipeline.git](https://github.com/YOUR_USERNAME/n8sec-cti-pipeline.git)
    cd n8sec-cti-pipeline
+
+# ![Dashboard Screenshot](image.png)
