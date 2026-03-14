@@ -27,7 +27,7 @@ The **n8sec CTI Engine** is an automated pipeline built for security analysts. I
    git clone [https://github.com/MegaBitsnBytes/n8sec-cti-pipeline.git](https://github.com/MegaBitsnBytes/n8sec-cti-pipeline.git)
    cd n8sec-cti-pipeline
    streamlit run cti_dashboard_cloud.py
-   **If you run into issues with the streamlit run command try these commands:
+   #If you run into issues with the streamlit run command try these commands:
    py -m streamlit run cti_dashboard_cloud.py
    python -m streamlit run cti_dashboard_cloud.py
 
