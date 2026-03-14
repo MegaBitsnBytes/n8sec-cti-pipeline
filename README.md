@@ -1,5 +1,9 @@
  # 🛡️ n8sec CTI Engine
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://n8sec-cti.streamlit.app/)
+# Requires a groq api > get one free here: https://console.groq.com/ 
+
+A live dashboard for processing and analyzing threat intelligence data.
 > Blazing-fast, LLM-powered Cyber Threat Intelligence triage and IOC extraction.
 
 The **n8sec CTI Engine** is an automated pipeline built for security analysts. It ingests the latest articles from 30+ top infosec RSS feeds, processes them through Groq's hyper-fast Llama models, and automatically maps emerging threats against custom Priority Intelligence Requirements (PIRs)—all wrapped in a clean, deployable Streamlit dashboard.
