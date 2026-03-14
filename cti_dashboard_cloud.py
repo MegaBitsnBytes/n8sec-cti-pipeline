@@ -55,17 +55,67 @@ MY_PIRS = """
 """
 
 # =====================================================================
-# 2. THE CTI RSS FEED LIST 
+# 2. CTI RSS FEED LIST (60+ Sources)
 # =====================================================================
 CTI_RSS_FEEDS = [
-    "https://feeds.feedburner.com/TheHackersNews",
-    "https://www.bleepingcomputer.com/feed/",
-    "https://www.darkreading.com/rss.xml",
-    "https://krebsonsecurity.com/feed/",
+    # --- TIER 1: GOVERNMENT & CERT ALERTS (High Fidelity, Low Noise) ---
     "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+    "https://us-cert.cisa.gov/ncas/alerts.xml",
+    "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml",
+    "https://cert.europa.eu/publications/rss",
+    "https://jvn.jp/en/rss/jvn.rdf", # Japan CERT (Great for AP-focused threats)
+
+    # --- TIER 2: VENDOR THREAT RESEARCH (The IOC Goldmines) ---
     "https://www.mandiant.com/resources/blog/rss.xml",
     "https://blog.talosintelligence.com/feeds/posts/default",
-    # Add the rest of your 30+ feeds back in here!
+    "https://unit42.paloaltonetworks.com/feed/",
+    "https://www.crowdstrike.com/blog/feed/",
+    "https://redcanary.com/blog/feed/",
+    "https://www.sentinelone.com/blog/feed/",
+    "https://securelist.com/feed/", # Kaspersky (Excellent for ransomware/stealers)
+    "https://research.checkpoint.com/feed/",
+    "https://news.sophos.com/en-us/category/threat-research/feed/",
+    "https://www.welivesecurity.com/en/rss/feed", # ESET
+    "https://www.proofpoint.com/us/rss.xml", # Top tier for BEC and Email threats
+    "https://www.cybereason.com/blog/rss.xml",
+    "https://www.malwarebytes.com/blog/feed",
+    "https://www.trendmicro.com/en_us/research.rss",
+    "https://symantec-enterprise-blogs.security.com/feed",
+    "https://www.dragos.com/blog/feed/", # ICS/OT specific threats
+    "https://www.fortinet.com/blog/threat-research/rss",
+    "https://blogs.blackberry.com/en/feed",
+
+    # --- TIER 3: VULNERABILITY & EXPLOIT TRACKING ---
+    "https://isc.sans.edu/rssfeed_full.xml",
+    "https://www.zerodayinitiative.com/rss/",
+    "https://msrc.microsoft.com/blog/feed/", # Microsoft Security Response
+    "https://blog.projectzero.com/feeds/posts/default", # Google Project Zero
+    "https://vulners.com/rss.xml",
+    "https://attackerkb.com/rss",
+
+    # --- TIER 4: RAPID BREACH NEWS & STRATEGIC INTEL ---
+    "https://www.bleepingcomputer.com/feed/",
+    "https://feeds.feedburner.com/TheHackersNews",
+    "https://therecord.media/feed/", # Recorded Future's news wing
+    "https://www.darkreading.com/rss.xml",
+    "https://krebsonsecurity.com/feed/",
+    "https://www.cyberscoop.com/feed/",
+    "https://www.csoonline.com/feed",
+    "https://www.securityweek.com/feed/",
+    "https://www.infosecurity-magazine.com/rss/news/",
+    "https://thecyberexpress.com/feed/",
+    "https://securityaffairs.co/wordpress/feed",
+    "https://www.scmagazine.com/rss",
+    "https://cybernews.com/feed/",
+
+    # --- TIER 5: OSINT, DARK WEB, & HACKTIVISM ---
+    "https://medium.com/feed/week-in-osint",
+    "https://www.hackread.com/feed/",
+    "https://grahamcluley.com/feed/",
+    "https://www.schneier.com/feed/atom/",
+    "https://www.tracelabs.org/blog/rss.xml",
+    "https://intel471.com/blog/rss", # Great dark web cybercrime coverage
+    "https://kela.com/feed/" # Dark web threat intel
 ]
 
 # =====================================================================
