@@ -71,7 +71,7 @@ if st.sidebar.button("🗑️ Clear URL Cache"):
         st.sidebar.info("Cache is already empty.")
 
 # =====================================================================
-# CTI RSS FEED LIST (60+ Sources)
+# CTI RSS FEED LIST (50+ Sources)
 # =====================================================================
 CTI_RSS_FEEDS = [
     # --- TIER 1: GOVERNMENT & CERT ALERTS (High Fidelity, Low Noise) ---
