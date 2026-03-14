@@ -7,9 +7,10 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 import streamlit as st
 from groq import Groq
+import time
 
 # =====================================================================
-# 1. SETUP & UI CONFIGURATION
+# SETUP & UI CONFIGURATION
 # =====================================================================
 st.set_page_config(page_title="n8sec CTI Dashboard", page_icon="🛡️", layout="wide")
 
@@ -53,9 +54,22 @@ MY_PIRS = """
 5. Information-stealer malware: Identify new and emerging information-stealer malware including capabilities, functionality and threat levels.
 6. Fraud: Identify fraud activity that includes State, Local, Tribal Territorial (SLTT) governments, municipalities and K-12 
 """
+# =====================================================================
+# SIDEBAR TOOLS
+# =====================================================================
+st.sidebar.markdown("---")
+st.sidebar.subheader("🛠️ Engine Tools")
+
+# Button to delete the local history file so the script re-reads old feeds
+if st.sidebar.button("🗑️ Clear URL Cache"):
+    if os.path.exists(HISTORY_FILE):
+        os.remove(HISTORY_FILE)
+        st.sidebar.success("Cache cleared! The engine will re-scan all feeds on the next run.")
+    else:
+        st.sidebar.info("Cache is already empty.")
 
 # =====================================================================
-# 2. CTI RSS FEED LIST (60+ Sources)
+# CTI RSS FEED LIST (60+ Sources)
 # =====================================================================
 CTI_RSS_FEEDS = [
     # --- TIER 1: GOVERNMENT & CERT ALERTS (High Fidelity, Low Noise) ---
