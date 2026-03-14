@@ -16,12 +16,22 @@ st.set_page_config(page_title="n8sec CTI Dashboard", page_icon="🛡️", layout
 st.title("🛡️ n8sec Automated CTI Triage Engine")
 st.markdown("Monitoring priority intelligence requirements (PIRs) using the blazing-fast Groq API.")
 
-# Securely load the API key from .streamlit/secrets.toml
-try:
+# =====================================================================
+# HYBRID AUTHENTICATION LOGIC
+# =====================================================================
+st.sidebar.header("Configuration")
+
+# Check if the local secrets file exists
+if "GROQ_API_KEY" in st.secrets:
+    # 1. LOCAL MODE: Silently use your hidden key
     groq_api_key = st.secrets["GROQ_API_KEY"]
-except KeyError:
-    st.error("⚠️ GROQ_API_KEY not found. Please ensure `.streamlit/secrets.toml` is configured properly.")
-    st.stop()
+    st.sidebar.success("🔒 Local API Key Loaded")
+else:
+    # 2. CLOUD/PUBLIC MODE: Require the user to input their own key
+    groq_api_key = st.sidebar.text_input("Enter your Groq API Key", type="password")
+    if not groq_api_key:
+        st.sidebar.warning("⚠️ Please provide a Groq API Key to run the pipeline.")
+        st.sidebar.markdown("[Get a free key here](https://console.groq.com/keys)")
 
 st.sidebar.header("Configuration")
 cloud_model = st.sidebar.selectbox(
