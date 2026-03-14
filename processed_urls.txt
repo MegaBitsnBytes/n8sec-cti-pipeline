@@ -1,0 +1,12 @@
+https://thehackernews.com/2026/03/glassworm-supply-chain-attack-abuses-72.html
+https://thehackernews.com/2026/03/chinese-hackers-target-southeast-asian.html
+https://www.bleepingcomputer.com/news/security/appsflyer-web-sdk-used-to-spread-crypto-stealer-javascript-code/
+https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-11-users-cant-access-c-drive-on-some-samsung-pcs/
+https://www.darkreading.com/vulnerabilities-threats/fake-pocs-risks-cisco-sd-wan
+https://www.darkreading.com/threat-intelligence/data-gap-why-nonprofit-cyber-incidents-go-underreported
+https://krebsonsecurity.com/2026/03/iran-backed-hackers-claim-wiper-attack-on-medtech-firm-stryker/
+https://krebsonsecurity.com/2026/03/microsoft-patch-tuesday-march-2026-edition/
+https://www.cisa.gov/news-events/alerts/2026/03/13/cisa-adds-two-known-exploited-vulnerabilities-catalog
+https://www.cisa.gov/news-events/ics-advisories/icsa-26-071-03
+https://cloud.google.com/blog/topics/threat-intelligence/preparation-hardening-destructive-attacks/
+https://cloud.google.com/blog/topics/threat-intelligence/2025-zero-day-review/

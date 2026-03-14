@@ -26,7 +26,11 @@ except KeyError:
 st.sidebar.header("Configuration")
 cloud_model = st.sidebar.selectbox(
     "Select Groq Model",
-    ("llama3-8b-8192", "llama3-70b-8192", "mixtral-8x7b-32768") 
+    (
+        "llama-3.3-70b-versatile", 
+        "llama-3.1-8b-instant", 
+        "mixtral-8x7b-32768"
+    ) 
 )
 
 HISTORY_FILE = "processed_urls.txt"
@@ -123,28 +127,41 @@ def get_groq_intel_features(article_text, selected_model, api_key):
         "summary": "String: A 2 sentence summary of the threat"
     }}
     """
-    try:
-        chat_completion = client.chat.completions.create(
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are a strict CTI data extraction tool. You must ONLY output valid JSON. Do not include introductory or concluding text."
-                },
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ],
-            model=selected_model,
-            temperature=0,
-            response_format={"type": "json_object"} 
-        )
-        
-        raw_json = chat_completion.choices[0].message.content.strip()
-        return json.loads(raw_json)
-    except Exception as e:
-        st.error(f"Groq API Error: {e}")
-        return None
+    
+    # The Backoff Loop: Try up to 3 times before giving up
+    for attempt in range(3): 
+        try:
+            chat_completion = client.chat.completions.create(
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are a strict CTI data extraction tool. You must ONLY output valid JSON. Do not include introductory or concluding text."
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ],
+                model=selected_model,
+                temperature=0,
+                response_format={"type": "json_object"} 
+            )
+            
+            raw_json = chat_completion.choices[0].message.content.strip()
+            return json.loads(raw_json)
+            
+        except Exception as e:
+            error_message = str(e).lower()
+            if "429" in error_message or "rate_limit" in error_message:
+                # If we hit the speed limit, tell Streamlit we are pausing
+                st.toast(f"⏳ API speed limit reached. Pausing for 60 seconds to let the token bucket refill...")
+                time.sleep(60) 
+                continue 
+            else:
+                st.error(f"Groq API Error: {e}")
+                return None
+                
+    return None # Returns None if all 3 attempts fail
 
 # =====================================================================
 # 5. MACHINE LEARNING: DECISION TREE
