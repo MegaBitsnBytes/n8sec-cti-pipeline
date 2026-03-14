@@ -48,11 +48,13 @@ HISTORY_FILE = "processed_urls.txt"
 
 MY_PIRS = """
 1. Ransomware malware: Identify new and emerging ransomware variants, capabilities, infection chains and decryption methods.
-2. Information or data breach: Determine capability and intent of adversaries compromising or disclosing information belonging to or impacting us.
+2. Information or data breach: Determine capability and intent of adversaries compromising or disclosing information belonging to or impacting U.S.
 3. RAT malware: Identify the impacted or targeted operating system or network device by Remote Access Trojans.
 4. Business email compromise (BEC): Identify and characterize adversary TTPs and tools used in BEC schemes.
 5. Information-stealer malware: Identify new and emerging information-stealer malware including capabilities, functionality and threat levels.
-6. Fraud: Identify fraud activity that includes State, Local, Tribal Territorial (SLTT) governments, municipalities and K-12 
+6. Fraud: Identify fraud activity that includes State, Local, Tribal Territorial (SLTT) governments, municipalities, K-12, and financial institutions.
+7. Vulnerabilities: Identify vulnerabilities in software and hardware that are being actively exploited by adversaries.
+8. Dark web cybercrime activity: Identify cybercrime activity on the dark web that poses a threat to U.S. interests, including the sale of stolen data, hacking tools, and illicit services. 
 """
 # =====================================================================
 # SIDEBAR TOOLS
