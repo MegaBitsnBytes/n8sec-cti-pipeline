@@ -1,0 +1,6 @@
+streamlit
+feedparser
+newspaper3k
+pandas
+scikit-learn
+groq
