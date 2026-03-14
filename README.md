@@ -5,9 +5,9 @@
  Requires a groq api > get one free here: https://console.groq.com/ 
 
 A live dashboard for processing and analyzing threat intelligence data.
-> Blazing-fast, LLM-powered Cyber Threat Intelligence triage and IOC extraction.
+> Blazing-fast, LLM-powered Cyber Threat Intelligence triage and IOC extraction. This is experimental and caution should be used with IOC accuracy. The streamlit leverages human/AI code and AI models, so it is bound to be imperfect. 
 
-The **n8sec CTI Engine** is an automated pipeline built for security analysts. It ingests the latest articles from 30+ top infosec RSS feeds, processes them through Groq's hyper-fast Llama models, and automatically maps emerging threats against custom Priority Intelligence Requirements (PIRs)—all wrapped in a clean, deployable Streamlit dashboard.
+The **n8sec CTI Engine** is an automated pipeline built for security analysts. It ingests the latest articles from 60+ top infosec RSS feeds, processes them through Groq's hyper-fast Llama models, and automatically maps emerging threats against custom Priority Intelligence Requirements (PIRs)—all wrapped in a clean, deployable Streamlit dashboard.
 
 ## ✨ Core Features
 * **Automated Ingestion:** Scrapes and parses text from over 30 leading cybersecurity news sources and vendor blogs (BleepingComputer, Mandiant, Talos, CISA, etc.).
@@ -24,7 +24,11 @@ The **n8sec CTI Engine** is an automated pipeline built for security analysts. I
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/n8sec-cti-pipeline.git](https://github.com/YOUR_USERNAME/n8sec-cti-pipeline.git)
+   git clone [https://github.com/MegaBitsnBytes/n8sec-cti-pipeline.git](https://github.com/MegaBitsnBytes/n8sec-cti-pipeline.git)
    cd n8sec-cti-pipeline
+   streamlit run cti_dashboard_cloud.py
+   **If you run into issues with the streamlit run command try these commands:
+   py -m streamlit run cti_dashboard_cloud.py
+   python -m streamlit run cti_dashboard_cloud.py
 
 # ![Dashboard Screenshot](image.png)
