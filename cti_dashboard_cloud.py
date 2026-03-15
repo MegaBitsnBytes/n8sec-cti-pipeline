@@ -135,7 +135,7 @@ CTI_RSS_FEEDS = [
 ]
 
 # =====================================================================
-# 3. AUTOMATED INGESTION ENGINE
+# AUTOMATED INGESTION ENGINE
 # =====================================================================
 def load_processed_urls():
     if not os.path.exists(HISTORY_FILE):
@@ -171,7 +171,7 @@ def scrape_article(url):
         return None, None
 
 # =====================================================================
-# 4. GROQ API NLP FEATURE EXTRACTION
+# GROQ API NLP FEATURE EXTRACTION
 # =====================================================================
 def get_groq_intel_features(article_text, selected_model, api_key):
     client = Groq(api_key=api_key)
@@ -240,7 +240,7 @@ def get_groq_intel_features(article_text, selected_model, api_key):
     return None # Returns None if all 3 attempts fail
 
 # =====================================================================
-# 5. MACHINE LEARNING: DECISION TREE
+# MACHINE LEARNING: DECISION TREE
 # =====================================================================
 @st.cache_resource 
 def train_decision_tree():
@@ -254,7 +254,7 @@ def train_decision_tree():
     return clf
 
 # =====================================================================
-# 6. MAIN EXECUTION PIPELINE
+# MAIN EXECUTION PIPELINE
 # =====================================================================
 if st.button("🚀 Run Cloud Threat Intel Pipeline"):
 
